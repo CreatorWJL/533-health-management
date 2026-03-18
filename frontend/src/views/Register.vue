@@ -2,8 +2,20 @@
   <div class="register-container">
     <el-card class="register-card">
       <template #header>
-        <h2>用户注册</h2>
+        <div class="header">
+          <h2>用户注册</h2>
+          <el-tag v-if="isDemoMode" type="warning" effect="dark" size="small">演示模式</el-tag>
+        </div>
       </template>
+      <el-alert
+        v-if="isDemoMode"
+        title="当前处于演示模式，后端服务不可用"
+        type="info"
+        description="注册信息将仅保存在本地浏览器中，刷新页面后数据不会保留。"
+        show-icon
+        :closable="false"
+        style="margin-bottom: 20px"
+      />
       <el-form :model="form" :rules="rules" ref="formRef" label-width="80px">
         <el-form-item label="用户名" prop="username">
           <el-input v-model="form.username" placeholder="请输入用户名" />
@@ -29,10 +41,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { userApi } from '@/api/user'
+import { getDemoMode } from '@/api/request'
 
 const router = useRouter()
 const formRef = ref()
@@ -44,6 +57,8 @@ const form = reactive({
   realName: '',
   phone: ''
 })
+
+const isDemoMode = computed(() => getDemoMode())
 
 const rules = {
   username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
@@ -59,7 +74,14 @@ const handleRegister = async () => {
     ElMessage.success('注册成功，请登录')
     router.push('/login')
   } catch (e: any) {
-    ElMessage.error(e.message || '注册失败')
+    // Demo mode: simulate successful registration
+    if (isDemoMode.value) {
+      localStorage.setItem('registerData', JSON.stringify(form))
+      ElMessage.success('演示模式：注册成功（数据仅保存在本地）')
+      router.push('/login')
+    } else {
+      ElMessage.error(e.message || '注册失败')
+    }
   } finally {
     loading.value = false
   }
@@ -79,8 +101,15 @@ const handleRegister = async () => {
   width: 400px;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 h2 {
   text-align: center;
   color: #333;
+  margin: 0;
 }
 </style>
