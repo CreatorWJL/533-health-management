@@ -7,14 +7,14 @@
         <span class="mobile-menu-btn">☰</span>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item index="/home/dashboard">控制台</el-dropdown-item>
-            <el-dropdown-item index="/home/health-record">健康档案</el-dropdown-item>
-            <el-dropdown-item index="/home/assessment">健康评估</el-dropdown-item>
-            <el-dropdown-item index="/home/intervention">干预计划</el-dropdown-item>
-            <el-dropdown-item index="/home/device">设备管理</el-dropdown-item>
-            <el-dropdown-item index="/home/report">健康报告</el-dropdown-item>
-            <el-dropdown-item index="/home/notification">消息通知</el-dropdown-item>
-            <el-dropdown-item index="/home/settings">设置</el-dropdown-item>
+            <el-dropdown-item command="/home/dashboard">控制台</el-dropdown-item>
+            <el-dropdown-item command="/home/health-record">健康档案</el-dropdown-item>
+            <el-dropdown-item command="/home/assessment">健康评估</el-dropdown-item>
+            <el-dropdown-item command="/home/intervention">干预计划</el-dropdown-item>
+            <el-dropdown-item command="/home/device">设备管理</el-dropdown-item>
+            <el-dropdown-item command="/home/report">健康报告</el-dropdown-item>
+            <el-dropdown-item command="/home/notification">消息通知</el-dropdown-item>
+            <el-dropdown-item command="/home/settings">设置</el-dropdown-item>
             <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </template>

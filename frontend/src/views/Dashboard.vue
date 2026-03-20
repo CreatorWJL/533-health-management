@@ -475,4 +475,39 @@ onMounted(async () => {
   font-size: 14px;
   color: #909399;
 }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .stat-row > .el-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .stat-card {
+    height: 100%;
+  }
+  
+  .stat-card :deep(.el-card__body) {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px 12px;
+  }
+  
+  .stat-icon {
+    margin-bottom: 8px;
+  }
+  
+  .stat-content {
+    margin-left: 0;
+  }
+  
+  .stat-value {
+    font-size: 20px;
+  }
+}
 </style>

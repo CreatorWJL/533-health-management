@@ -557,20 +557,21 @@ const getRiskTagType = (level: string) => {
   }
   
   .button-group {
-    flex-direction: column;
+    flex-direction: row;
     gap: 12px;
   }
   
   .button-group .el-button {
-    width: 100%;
+    flex: 1;
   }
   
   .result-actions {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 12px;
   }
   
   .result-actions .el-button {
-    width: 100%;
+    flex: 1;
   }
   
   :deep(.el-radio-group) {

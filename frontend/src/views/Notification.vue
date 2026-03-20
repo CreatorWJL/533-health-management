@@ -598,5 +598,16 @@ const deleteDrugReminder = (id: number) => {
     justify-content: flex-end;
     margin-top: 8px;
   }
+
+  .filter-bar .el-radio-group {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .filter-bar .el-radio-button {
+    flex-shrink: 0;
+  }
 }
 </style>
