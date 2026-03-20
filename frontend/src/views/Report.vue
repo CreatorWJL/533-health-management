@@ -621,7 +621,7 @@ const getTypeLabel = (type: string) => {
     gap: 12px;
   }
   
-  .report-form :deep(.el-form-item__content > .el-button {
+  .report-form :deep(.el-form-item__content > .el-button) {
     width: 100%;
   }
 }
