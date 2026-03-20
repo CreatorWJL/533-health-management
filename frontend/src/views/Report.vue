@@ -617,12 +617,12 @@ const getTypeLabel = (type: string) => {
   
   .report-form :deep(.el-form-item__content) {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 12px;
   }
   
   .report-form :deep(.el-form-item__content > .el-button) {
-    width: 100%;
+    flex: 1;
   }
 }
 </style>
