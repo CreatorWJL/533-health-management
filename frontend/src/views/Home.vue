@@ -329,5 +329,10 @@ const handleLogout = () => {
     margin-bottom: 56px;
     padding: 12px;
   }
+
+  /* 修复移动端下拉菜单被遮挡问题 */
+  .el-dropdown-menu {
+    z-index: 2000 !important;
+  }
 }
 </style>
